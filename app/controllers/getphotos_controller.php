@@ -9,6 +9,7 @@
 namespace app\controllers;
 
 require_once __DIR__."/../views/lang.php";
+require_once BASE_DIR."/dbconfig.php";
 
 
 
@@ -58,7 +59,7 @@ class Getphotos_Controller extends Controller
         $Model = $this->model->getModel($modelid, "photodir");
 
         $this->photodir = "/".$Model['photodir'];
-        $this->rootpath = BASE_DIR."/".$Model['photodir'];
+        $this->rootpath = PHOTO_BASE_DIR."/".$Model['photodir'];
         $this->szAltText = $this->model->getModelName($Model);
 
         $files = $this->ScanFolder($this->rootpath."/full/");
